@@ -1,0 +1,22 @@
+#!/bin/bash
+
+MD5FILE=/git/scripts/md5
+FILE=/etc/crontab
+
+if [ ! -f "$MD5FILE" ]; then
+	md5sum $FILE > /git/scripts/md5
+else
+	if [ "$(cat $MD5FILE)" != "$(md5sum $FILE)" ]; then
+		echo "Mail envoye le $(date)" | mail -s "file $FILE has changed !" root
+		md5sum $FILE > /git/scripts/md5
+	fi
+fi
+
+# crontab:
+# 0 0 * * * sh /git/scripts/04.sh
+
+# Si mail ne fonctionne pas, installer mailutils : 
+# sudo apt-get install mailutils
+
+# Voir les mails envoyes : /var/mail/
+# Tous les mails se mettent les uns en dessous des autres

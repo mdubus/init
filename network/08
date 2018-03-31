@@ -1,0 +1,5 @@
+host -t ns slash16.org
+
+La commande suivante indique sur quels serveurs est heberge le site.
+Ici, on en deduit que ce sont des serveurs de chez Amazon Web Services (AWS).
+Le site est donc heberge par Amazon

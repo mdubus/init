@@ -1,0 +1,13 @@
+#!/bin/bash
+
+sudo apt-get update > /var/log/update_script.log
+sudo apt-get upgrade >> /var/log/update_script.log
+
+#crontab
+
+# crontab -e
+# Ajouter la commande suivante a la fin du fichier :
+#0 04 * * 0 sh /git/scripts/02
+
+# Pour verifier les cron qui sont lances, taper la commande suivante : 
+# crontab -l
